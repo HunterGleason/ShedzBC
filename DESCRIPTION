@@ -1,0 +1,15 @@
+Package: ShedzBC
+Title: Delineates watershed from CDED for BC. 
+Version: 0.0.1
+Authors@R: 
+    person(given = "Hunter",
+           family = "Gleason",
+           role = c("aut", "cre"),
+           email = "hunterg.desiertonieve@gmail.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description:This package delineates a basin from CDED provided a pour point and extent within British Columbia, CA. 
+License:use_mit_license()
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
