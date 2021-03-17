@@ -3,8 +3,8 @@
 #'
 #'This function requires a pour point and extent to delineate a watershed
 #'from digital elevation data derived from CDED, obtained using \link[bcmaps]{cded}.
-#'Flow tracing is done using \link[RSAGA] and multiple flow directions (MFD). Other
-#'transformations are done using gdal (gdalwarp,gdal_traslate & gdal_polygonize) and the \link[raster] package.
+#'Flow tracing is done using \link[RSAGA]{} and multiple flow directions (MFD). Other
+#'transformations are done using gdal (gdalwarp,gdal_traslate & gdal_polygonize) and the \link[raster]{} package.
 #'
 #' @param pour_point Geo-referenced sf point object, make sure pour point lies exactly within channel of interest.
 #' @param xmin Estimated minimum X coordinate in map units defining extent of basin to delineate.

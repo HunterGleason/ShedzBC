@@ -35,6 +35,6 @@ A list with the delineated basin as a sf polygon, and the CDED raster object for
 \description{
 This function requires a pour point and extent to delineate a watershed
 from digital elevation data derived from CDED, obtained using \link[bcmaps]{cded}.
-Flow tracing is done using \link\link{RSAGA} and multiple flow directions (MFD). Other
-transformations are done using gdal (gdalwarp,gdal_traslate & gdal_polygonize) and the \link\link{raster} package.
+Flow tracing is done using \link[RSAGA]{} and multiple flow directions (MFD). Other
+transformations are done using gdal (gdalwarp,gdal_traslate & gdal_polygonize) and the \link[raster]{} package.
 }
