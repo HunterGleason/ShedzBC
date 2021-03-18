@@ -11,7 +11,8 @@ bc_delin_basin(
   ymin,
   ymax,
   convergence = 1.1,
-  minslope = 0.1
+  minslope = 0.1,
+  prct_contrib = 25
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ bc_delin_basin(
 \item{convergence}{Convergence parameter for SAGA MFD algorithm.}
 
 \item{minslope}{Minimum slope parameter for SAGA fill DEM algorithm.}
+
+\item{prctp_contrib}{Minimum percentage of MFD flow contribution to be classified as within the basin.}
 }
 \value{
 A list with the delineated basin as a sf polygon, and the CDED raster object for the extent provided.

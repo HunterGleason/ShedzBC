@@ -13,9 +13,10 @@
 #' @param ymax Estimated maximum Y coordinate in map units defining extent of basin to delineate.
 #' @param convergence Convergence parameter for SAGA MFD algorithm.
 #' @param minslope Minimum slope parameter for SAGA fill DEM algorithm.
+#' @param prctp_contrib Minimum percentage of MFD flow contribution to be classified as within the basin.
 #' @return A list with the delineated basin as a sf polygon, and the CDED raster object for the extent provided.
 #' @export
-bc_delin_basin<-function(pour_point,xmin,xmax,ymin,ymax,convergence=1.1,minslope=0.1)
+bc_delin_basin<-function(pour_point,xmin,xmax,ymin,ymax,convergence=1.1,minslope=0.1,prct_contrib=25.0)
 {
   #Get extent as sf rectangle
   extent<-sf::st_sfc(sf::st_polygon(x = list(rbind(c(xmin,ymin),c(xmax,ymin),c(xmax,ymax),c(xmin,ymax),c(xmin,ymin)))),crs=sf::st_crs(pour_point))
@@ -54,8 +55,8 @@ bc_delin_basin<-function(pour_point,xmin,xmax,ymin,ymax,convergence=1.1,minslope
   mfd<-raster::raster(file.path(tempdir(),'upslope_area.tif'))
 
   #Get only cells contributing more than 50% flow, convert to binary
-  mfd[mfd<50]<-NA
-  mfd<-mfd>=50
+  mfd[mfd<prct_contrib]<-NA
+  mfd<-mfd>=prct_contrib
 
   #write out so gdal can access data
   raster::writeRaster(mfd,file.path(tempdir(),'basin_binary.tif'))
